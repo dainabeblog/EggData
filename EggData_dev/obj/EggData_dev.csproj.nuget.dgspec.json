@@ -1,0 +1,93 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/EggData_dev.csproj": {}
+  },
+  "projects": {
+    "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/EggData_dev.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/EggData_dev.csproj",
+        "projectName": "EggData_dev",
+        "projectPath": "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/EggData_dev.csproj",
+        "packagesPath": "/Users/watanabedaichi/.nuget/packages/",
+        "outputPath": "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/watanabedaichi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.17, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

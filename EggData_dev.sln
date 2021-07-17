@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EggData_dev", "EggData_dev\EggData_dev.csproj", "{AE9489BD-6238-4AAF-9420-DA334D9E13CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE9489BD-6238-4AAF-9420-DA334D9E13CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9489BD-6238-4AAF-9420-DA334D9E13CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9489BD-6238-4AAF-9420-DA334D9E13CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9489BD-6238-4AAF-9420-DA334D9E13CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CCFBBD6-76F8-433F-A838-878F25284140}
+	EndGlobalSection
+EndGlobal

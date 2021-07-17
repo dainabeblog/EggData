@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Data/Migrations/20210717102724_InitialCreate.cs">
+    <Files>
+      <File FileName="EggData_dev/appsettings.json" Line="4" Column="106" />
+      <File FileName="EggData_dev/Startup.cs" Line="55" Column="39" />
+      <File FileName="EggData_dev/Data/Migrations/20210717102724_InitialCreate.cs" Line="35" Column="21" />
+      <File FileName="EggData_dev/Areas/Identity/Pages/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="EggData_dev/Data/Migrations/20210717102724_InitialCreate.Designer.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EggData_dev" expanded="True">
+            <Node name="EggData_dev" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Identity" expanded="True">
+                  <Node name="Pages" expanded="True" />
+                </Node>
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True">
+                <Node name="Migrations" expanded="True">
+                  <Node name="20210717102724_InitialCreate.cs" expanded="True" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.EggData__dev PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>
