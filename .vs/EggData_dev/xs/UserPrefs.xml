@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Models/ApplicationUser.cs">
     <Files>
-      <File FileName="EggData_dev/appsettings.json" Line="4" Column="106" />
-      <File FileName="EggData_dev/Startup.cs" Line="40" Column="38" />
-      <File FileName="EggData_dev/Data/Migrations/20210717102724_InitialCreate.cs" />
-      <File FileName="EggData_dev/Areas/Identity/Pages/_ViewStart.cshtml" />
-      <File FileName="EggData_dev/Data/Migrations/20210717102724_InitialCreate.Designer.cs" />
+      <File FileName="EggData_dev/Views/Shared/_LoginPartial.cshtml" Line="27" Column="1" />
+      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Models/ApplicationUser.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Data/Migrations/20210721060703_secondCreate.Designer.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Data/Migrations/ApplicationDbContextModelSnapshot.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,11 +20,27 @@
                 </Node>
               </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
-              <Node name="Views" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Data" expanded="True">
+                <Node name="Migrations" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True">
+                <Node name="ApplicationUser.cs" selected="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="Shared" expanded="True" />
+              </Node>
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>_context</Value>
+          <Value>_context</Value>
+          <Value>Identity</Value>
+          <Value>User.Identity</Value>
+          <Value>product.IdentityUser</Value>
+          <Value>(Microsoft.AspNetCore.Identity.IdentityUser)User.Identity</Value>
         </State>
       </Pad>
     </Pads>
