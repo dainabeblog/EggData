@@ -1,32 +1,31 @@
 ﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Controllers/ProductController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Views/Store/Create.cshtml">
     <Files>
-      <File FileName="EggData_dev/Models/Product.cs" Line="12" Column="1" />
-      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="29" Column="1" />
-      <File FileName="EggData_dev/Migrations/20210721111046_initialCreate.cs" Line="234" Column="10" />
-      <File FileName="EggData_dev/Views/Shared/_Layout.cshtml" Line="8" Column="91" />
-      <File FileName="EggData_dev/Views/Home/Setting.cshtml" Line="8" Column="118" />
-      <File FileName="EggData_dev/Views/Product/Edit.cshtml" Line="29" Column="27" />
-      <File FileName="EggData_dev/Views/Product/Delete.cshtml" Line="25" Column="31" />
-      <File FileName="EggData_dev/Views/Product/Create.cshtml" Line="11" Column="18" />
-      <File FileName="EggData_dev/Program.cs" Line="24" Column="20" />
-      <File FileName="EggData_dev/Controllers/ProductController.cs" Line="99" Column="18" />
+      <File FileName="EggData_dev/Views/Home/Setting.cshtml" Line="33" Column="17" />
+      <File FileName="EggData_dev/Models/Product.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Models/Product_Store.cs" Line="12" Column="1" />
+      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="40" Column="63" />
+      <File FileName="EggData_dev/Models/ErrorViewModel.cs" Line="5" Column="18" />
+      <File FileName="EggData_dev/Controllers/StoreController.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Models/Store.cs" Line="15" Column="6" />
+      <File FileName="EggData_dev/Controllers/ProductController.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Data/ApplicationDbContext.cs" Line="27" Column="1" />
+      <File FileName="EggData_dev/Views/Store/Create.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EggData_dev" expanded="True">
             <Node name="EggData_dev" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ProductController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Data" expanded="True" />
-              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="Product" expanded="True" />
-                <Node name="Shared" expanded="True" />
+                <Node name="Store" expanded="True">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

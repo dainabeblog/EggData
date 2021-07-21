@@ -20,5 +20,7 @@ namespace EggData_dev.Data
         }
 
         public DbSet<EggData_dev.Models.Product> Product { get; set; }
+
+        public DbSet<EggData_dev.Models.Store> Store { get; set; }
     }
 }

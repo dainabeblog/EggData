@@ -12,6 +12,7 @@
     <None Remove="Data\Migrations\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,5 +33,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Views\Store\" />
   </ItemGroup>
 </Project>

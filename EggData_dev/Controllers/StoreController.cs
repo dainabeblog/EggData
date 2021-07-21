@@ -10,45 +10,44 @@ using EggData_dev.Models;
 
 namespace EggData_dev.Controllers
 {
-    public class ProductController : Controller
+    public class StoreController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductController(ApplicationDbContext context)
+        public StoreController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+        // GET: Store
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _context.Store.ToListAsync());
         }
 
-
-        // GET: Product/Create
+        // GET: Store/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Product/Create
+        // POST: Store/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,Name,UserName")] Product product)
+        public async Task<IActionResult> Create([Bind("StoreId,Name,UserName")] Store store)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(store);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Setting", "Home");
             }
-            return View(product);
+            return View(store);
         }
 
-        // GET: Product/Edit/5
+        // GET: Store/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -56,22 +55,22 @@ namespace EggData_dev.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
-            if (product == null)
+            var store = await _context.Store.FindAsync(id);
+            if (store == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(store);
         }
 
-        // POST: Product/Edit/5
+        // POST: Store/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,Name,UserName")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("StoreId,Name,UserName")] Store store)
         {
-            if (id != product.ProductId)
+            if (id != store.StoreId)
             {
                 return NotFound();
             }
@@ -80,12 +79,12 @@ namespace EggData_dev.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(store);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ProductId))
+                    if (!StoreExists(store.StoreId))
                     {
                         return NotFound();
                     }
@@ -96,10 +95,10 @@ namespace EggData_dev.Controllers
                 }
                 return RedirectToAction("Setting", "Home");
             }
-            return View(product);
+            return View(store);
         }
 
-        // GET: Product/Delete/5
+        // GET: Store/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -107,30 +106,30 @@ namespace EggData_dev.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
+            var store = await _context.Store
+                .FirstOrDefaultAsync(m => m.StoreId == id);
+            if (store == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(store);
         }
 
-        // POST: Product/Delete/5
+        // POST: Store/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
+            var store = await _context.Store.FindAsync(id);
+            _context.Store.Remove(store);
             await _context.SaveChangesAsync();
             return RedirectToAction("Setting", "Home");
         }
 
-        private bool ProductExists(int id)
+        private bool StoreExists(int id)
         {
-            return _context.Product.Any(e => e.ProductId == id);
+            return _context.Store.Any(e => e.StoreId == id);
         }
     }
 }

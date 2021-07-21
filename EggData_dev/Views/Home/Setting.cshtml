@@ -1,4 +1,7 @@
-﻿@model IEnumerable<EggData_dev.Models.Product>
+﻿@model Product_StoreViewModel
+
+
+
 @{
     ViewData["Title"] = "Setting";
 }
@@ -6,26 +9,51 @@
 
 
 <h2>商品一覧<a asp-action="Create" asp-controller="Product"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.ProductId">修正</a> |
-                    <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.ProductId">削除</a>
-                </td>
+                <th>
+                    商品名
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Product)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.ProductId">修正</a> |
+                        <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.ProductId">削除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+<h2>店舗一覧<a asp-action="Create" asp-controller="Store"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    店舗名
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Store)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Store" asp-route-id="@item.StoreId">修正</a> |
+                        <a asp-action="Delete" asp-controller="Store" asp-route-id="@item.StoreId">削除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

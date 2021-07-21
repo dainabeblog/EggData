@@ -28,12 +28,25 @@ namespace EggData_dev.Controllers
         }
 
 
+        //public async Task<IActionResult> Setting()
+        //{
+        //    return View(await _context.Product
+        //        .Where(e => e.UserName == User.Identity.Name)
+        //        .ToListAsync()
+        //        );
+        //}
         public async Task<IActionResult> Setting()
         {
-            return View(await _context.Product
+             var product_store = new Product_StoreViewModel();
+
+            product_store.Product = await _context.Product
                 .Where(e => e.UserName == User.Identity.Name)
-                .ToListAsync()
-                );
+                .ToListAsync();
+            product_store.Store = await _context.Store
+               .Where(e => e.UserName == User.Identity.Name)
+               .ToListAsync();
+
+            return View(product_store);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -186,6 +186,9 @@
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_LoginPartial.cshtml.g.cs
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Store/Create.cshtml.g.cs
+/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Store/Delete.cshtml.g.cs
+/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/Store/Edit.cshtml.g.cs
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
 /Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/Debug/netcoreapp3.1/EggData_dev.RazorTargetAssemblyInfo.cache
