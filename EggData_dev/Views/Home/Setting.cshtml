@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EggData_dev.Models.Product>
+@{
+    ViewData["Title"] = "Setting";
+}
+<h1>設定</h1>
+
+
+<h2>商品一覧<a asp-action="Create" asp-controller="Product"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.ProductId">修正</a> |
+                    <a asp-action="Delete" asp-controller="Product" asp-route-id="@item.ProductId">削除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

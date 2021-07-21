@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using EggData_dev.Models;
@@ -18,5 +18,7 @@ namespace EggData_dev.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<EggData_dev.Models.Product> Product { get; set; }
     }
 }

@@ -1,32 +1,31 @@
 ﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Models/ApplicationUser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Controllers/ProductController.cs">
     <Files>
-      <File FileName="EggData_dev/Views/Shared/_LoginPartial.cshtml" Line="27" Column="1" />
-      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Data/ApplicationDbContext.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Models/ApplicationUser.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Data/Migrations/20210721060703_secondCreate.Designer.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Data/Migrations/ApplicationDbContextModelSnapshot.cs" Line="1" Column="1" />
+      <File FileName="EggData_dev/Models/Product.cs" Line="12" Column="1" />
+      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="29" Column="1" />
+      <File FileName="EggData_dev/Migrations/20210721111046_initialCreate.cs" Line="234" Column="10" />
+      <File FileName="EggData_dev/Views/Shared/_Layout.cshtml" Line="8" Column="91" />
+      <File FileName="EggData_dev/Views/Home/Setting.cshtml" Line="8" Column="118" />
+      <File FileName="EggData_dev/Views/Product/Edit.cshtml" Line="29" Column="27" />
+      <File FileName="EggData_dev/Views/Product/Delete.cshtml" Line="25" Column="31" />
+      <File FileName="EggData_dev/Views/Product/Create.cshtml" Line="11" Column="18" />
+      <File FileName="EggData_dev/Program.cs" Line="24" Column="20" />
+      <File FileName="EggData_dev/Controllers/ProductController.cs" Line="99" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EggData_dev" expanded="True">
             <Node name="EggData_dev" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True">
-                  <Node name="Pages" expanded="True" />
-                </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="ProductController.cs" selected="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="Migrations" expanded="True" />
-              </Node>
-              <Node name="Models" expanded="True">
-                <Node name="ApplicationUser.cs" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True" />
+                <Node name="Product" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>
@@ -41,6 +40,8 @@
           <Value>User.Identity</Value>
           <Value>product.IdentityUser</Value>
           <Value>(Microsoft.AspNetCore.Identity.IdentityUser)User.Identity</Value>
+          <Value>User.Identity.Name</Value>
+          <Value>User.Identity.Name</Value>
         </State>
       </Pad>
     </Pads>
