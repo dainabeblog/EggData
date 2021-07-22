@@ -1,16 +1,12 @@
 ﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Views/Store/Create.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Views/Home/Index.cshtml">
     <Files>
-      <File FileName="EggData_dev/Views/Home/Setting.cshtml" Line="33" Column="17" />
-      <File FileName="EggData_dev/Models/Product.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Models/Product_Store.cs" Line="12" Column="1" />
-      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="40" Column="63" />
-      <File FileName="EggData_dev/Models/ErrorViewModel.cs" Line="5" Column="18" />
-      <File FileName="EggData_dev/Controllers/StoreController.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Models/Store.cs" Line="15" Column="6" />
-      <File FileName="EggData_dev/Controllers/ProductController.cs" Line="1" Column="1" />
-      <File FileName="EggData_dev/Data/ApplicationDbContext.cs" Line="27" Column="1" />
-      <File FileName="EggData_dev/Views/Store/Create.cshtml" Line="1" Column="1" />
+      <File FileName="EggData_dev/Views/Home/Index.cshtml" Line="35" Column="16" />
+      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="45" Column="21" />
+      <File FileName="EggData_dev/Models/Store.cs" />
+      <File FileName="EggData_dev/Program.cs" />
+      <File FileName="EggData_dev/Views/Product/Create.cshtml" Line="25" Column="1" />
+      <File FileName="EggData_dev/Views/Home/Setting.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,11 +17,12 @@
               <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
-                <Node name="Product" expanded="True" />
-                <Node name="Store" expanded="True">
-                  <Node name="Create.cshtml" selected="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
                 </Node>
+                <Node name="Product" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="Store" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -41,6 +38,12 @@
           <Value>(Microsoft.AspNetCore.Identity.IdentityUser)User.Identity</Value>
           <Value>User.Identity.Name</Value>
           <Value>User.Identity.Name</Value>
+          <Value>ViewBag.SLIstore"</Value>
+          <Value>ViewBag.SLIstore</Value>
+          <Value>item</Value>
+          <Value>product_store.Store</Value>
+          <Value>SelectListItem</Value>
+          <Value>item</Value>
         </State>
       </Pad>
     </Pads>

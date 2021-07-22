@@ -9650,7 +9650,7 @@
       "outputPath": "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/watanabedaichi/.nuget/NuGet/NuGet.Config"
+        "/Users/watanabedaichi/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
