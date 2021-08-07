@@ -1,0 +1,69 @@
+@model EggData_dev.Models.SalesData
+
+@{ ViewData["Title"] = "Edit"; }
+
+<h1>変更</h1>
+
+<h4>商品詳細</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SalesDataId" />
+            <div class="form-group">
+                <p>日付</p>
+                <input asp-for="date" id="date" type="date" value="2017-06-01">
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>店舗名</p>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <p>商品名</p>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.SLIproduct_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <input asp-for="saledCount" class="form-control" /><span>個</span>
+                <span asp-validation-for="saledCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" value="@User.Identity.Name" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="保存" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">戻る</a>
+</div>
+
+
+@section scripts{
+    <script>
+$(function () {
+            //selectボックスからmultiple削除
+            const Nomultiple = document.getElementById("single");
+            Nomultiple.removeAttribute("multiple");
+
+            //日付にデフォルトで今日の日付を指定
+            const date = new Date();
+            const yyyy = date.getFullYear();
+            let MM = date.getMonth() + 1;
+            if (String(MM).length == 1) {
+                MM = "0" + String(MM);
+            }
+            const dd = date.getDate();
+            const today = yyyy + "-" + MM + "-" + dd;
+            document.getElementById("date").setAttribute("value", today);
+
+            //今日の日付を指定
+            $("#today").text(MM + "/" + dd);
+        });</script>
+}

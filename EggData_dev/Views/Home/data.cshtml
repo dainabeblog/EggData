@@ -1,0 +1,72 @@
+﻿@model EggData_dev.Models.SalesData
+
+@{
+
+    ViewData["Title"] = "Home Page";
+
+}
+
+@{ if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="data">
+            <div class="form-group">
+                <p>期間</p>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1">
+                    <option>今日</option>
+                    <option>今週</option>
+                    <option>今月</option>
+                    <option>半年</option>
+                    <option>1年間</option>
+                    <option>全期間</option>
+                </select>
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>店舗名</p>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <p>商品名</p>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.SLIproduct_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <input asp-for="UserName" value="@User.Identity.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="作成" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <p id="today"></p>
+        <p>のデータ</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>店舗名</th>
+                    @foreach (var item in ViewBag.products_VB)
+                    {
+                        <th>
+                            @item.Name
+                        </th>
+                    }
+                </tr>
+                @for (var i = 0; i < ViewBag.a2dSalesData.GetLength(0); i++)
+                {
+                    <tr>
+                        @for (var j = 0; j < ViewBag.a2dSalesData.GetLength(1); j++)
+                        {
+                            <td>@ViewBag.a2dSalesData[i, j]</td>
+                        }
+                    </tr>
+                }
+            </thead>
+        </table>
+    }
+    else
+    {
+        <h1>ログインしてください</h1>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    }
+}
+
+

@@ -13,6 +13,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Views\Store\" />
     <None Remove="Data\Migrations\" />
+    <None Remove="Views\Product %28コピー%29\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -34,5 +35,6 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Store\" />
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Views\SalesData\" />
   </ItemGroup>
 </Project>

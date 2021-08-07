@@ -4,14 +4,6 @@
 
     ViewData["Title"] = "Home Page";
 
-    @*IEnumerable<Store> store = Model.Store;*@
-    @*var store = Enum.GetValues(typeof(Product_StoreViewModel)).Cast<Product_StoreViewModel>().Select(v => new SelectListItem
-        {
-            Text = v.Store.ToString(),
-            Value = v.Store.ToString()
-        }).ToList();*@
-
-
 }
 
 @{ if (User.Identity.IsAuthenticated)
@@ -31,21 +23,21 @@
             <p>商品名</p>
             @*ループで表示させるとエラー　& データのクリエイトが難しい*@
             @*@foreach (var item in ViewBag.products_VB)
-        {
-            @foreach (var item2 in ViewBag.SLIproduct_VB)
-            {
-                <div class="form-group">
-                    <p>@item2.Text</p>
-                    <select asp-for="ProductId" class="form-control" asp-items="@item2" size="1"></select>
-                </div>
-                <div class="form-group">
-                    <p>@item.Name</p>
-                    <input asp-for="saledCount" class="form-control" /><span>個</span>
-                </div>
-                break;
-            }
-            break;
-        }*@
+                {
+                    @foreach (var item2 in ViewBag.SLIproduct_VB)
+                    {
+                        <div class="form-group">
+                            <p>@item2.Text</p>
+                            <select asp-for="ProductId" class="form-control" asp-items="@item2" size="1"></select>
+                        </div>
+                        <div class="form-group">
+                            <p>@item.Name</p>
+                            <input asp-for="saledCount" class="form-control" /><span>個</span>
+                        </div>
+                        break;
+                    }
+                    break;
+                }*@
             <div class="form-group">
                 <p>商品名</p>
                 <select asp-for="ProductId" class="form-control" asp-items="ViewBag.SLIproduct_VB" size="1"></select>
@@ -80,7 +72,22 @@
                     <tr>
                         @for (var j = 0; j < ViewBag.a2dSalesData.GetLength(1); j++)
                         {
-                        <td>@ViewBag.a2dSalesData[i,j]</td>
+                            if (j == 0)
+                            {
+                                <td>@ViewBag.a2dSalesData[i, j].Text</td>
+                            }
+                            else
+                            {
+
+                                if (ViewBag.a2dSalesData[i, j] is string)
+                                {
+                                    <td>@ViewBag.a2dSalesData[i, j]</td>
+                                }
+                                else
+                                {
+                                    <td>@ViewBag.a2dSalesData[i, j].saledCount <a asp-action="Edit" asp-controller="SalesData" asp-route-id="@ViewBag.a2dSalesData[i, j].SalesDataId">修正</a></td>
+                                }
+                            }
                         }
                     </tr>
                 }
@@ -95,9 +102,11 @@
 }
 
 
+
+
+
 @section scripts{
-    <script>
-        $(function () {
+    <script>$(function () {
             //selectボックスからmultiple削除
             const Nomultiple = document.getElementById("single");
             Nomultiple.removeAttribute("multiple");
@@ -115,6 +124,5 @@
 
             //今日の日付を指定
             $("#today").text(MM + "/" + dd);
-        });
-    </script>
+        });</script>
 }

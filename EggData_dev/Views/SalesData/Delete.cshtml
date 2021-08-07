@@ -1,0 +1,27 @@
+@model EggData_dev.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>削除</h1>
+
+<h3>削除してもよろしいですか?</h3>
+<div>
+    <h4>商品詳細</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProductId" />
+        <input type="submit" value="削除" class="btn btn-danger" /> |
+        <a asp-action="Setting" asp-controller="Home">戻る</a>
+    </form>
+</div>

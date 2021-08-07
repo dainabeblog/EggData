@@ -27,20 +27,6 @@ namespace EggData_dev.Models
         public virtual string UserName { get; set; }
 
 
-        //public SalesData()
-        //{
-        //    saledCount = 0;
-        //}
-        //public SalesData(int SaledCount)
-        //{
-        //    saledCount = SaledCount;
-        //}
-        //public override string ToString()
-        //{
-        //    return "{ " + saledCount + ", }";
-        //}
-
-
         public static implicit operator SalesData(List<SalesData> v)
         {
             throw new NotImplementedException();
