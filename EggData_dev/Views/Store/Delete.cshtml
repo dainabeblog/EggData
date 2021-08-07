@@ -1,4 +1,4 @@
-@model EggData_dev.Models.Product
+@model EggData_dev.Models.Store
 
 @{
     ViewData["Title"] = "Delete";
@@ -20,7 +20,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="ProductId" />
+        <input type="hidden" asp-for="StoreId" />
         <input type="submit" value="削除" class="btn btn-danger" /> |
         <a asp-action="Setting" asp-controller="Home">戻る</a>
     </form>

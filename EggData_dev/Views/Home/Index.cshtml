@@ -1,4 +1,4 @@
-﻿@model Product_StoreViewModel
+﻿@model EggData_dev.Models.SalesData
 
 @{
 
@@ -6,11 +6,10 @@
 
     @*IEnumerable<Store> store = Model.Store;*@
     @*var store = Enum.GetValues(typeof(Product_StoreViewModel)).Cast<Product_StoreViewModel>().Select(v => new SelectListItem
-    {
-        Text = v.Store.ToString(),
-        Value = v.Store.ToString()
-    }).ToList();*@
-
+        {
+            Text = v.Store.ToString(),
+            Value = v.Store.ToString()
+        }).ToList();*@
 
 
 }
@@ -18,27 +17,75 @@
 @{ if (User.Identity.IsAuthenticated)
     {
         <h1>データを入力してください</h1>
-        <form asp-action="Create">
+        <form asp-action="Index">
+            @*<div asp-validation-summary="All" class="text-danger"></div>*@
             <div class="form-group">
                 <p>日付</p>
-                <input id="date" type="date" value="2017-06-01">
+                <input asp-for="date" id="date" type="date" value="2017-06-01">
+                <span asp-validation-for="date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <p>店舗名</p>
-                <select id="single" asp-for="Store" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1"></select>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1"></select>
             </div>
             <p>商品名</p>
-            @foreach (var item in Model.Product)
+            @*ループで表示させるとエラー　& データのクリエイトが難しい*@
+            @*@foreach (var item in ViewBag.products_VB)
+        {
+            @foreach (var item2 in ViewBag.SLIproduct_VB)
             {
                 <div class="form-group">
-                    <p>@item.Name</p>
-                    <input class="form-control" /><span>個</span>
+                    <p>@item2.Text</p>
+                    <select asp-for="ProductId" class="form-control" asp-items="@item2" size="1"></select>
                 </div>
+                <div class="form-group">
+                    <p>@item.Name</p>
+                    <input asp-for="saledCount" class="form-control" /><span>個</span>
+                </div>
+                break;
             }
+            break;
+        }*@
+            <div class="form-group">
+                <p>商品名</p>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.SLIproduct_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <input asp-for="saledCount" class="form-control" /><span>個</span>
+                <span asp-validation-for="saledCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="UserName" value="@User.Identity.Name" class="form-control" />
+            </div>
             <div class="form-group">
                 <input type="submit" value="作成" class="btn btn-primary" />
             </div>
         </form>
+
+        <p id="today"></p>
+        <p>のデータ</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>店舗名</th>
+                    @foreach (var item in ViewBag.products_VB)
+                    {
+                        <th>
+                            @item.Name
+                        </th>
+                    }
+                </tr>
+                @for (var i = 0; i < ViewBag.a2dSalesData.GetLength(0); i++)
+                {
+                    <tr>
+                        @for (var j = 0; j < ViewBag.a2dSalesData.GetLength(1); j++)
+                        {
+                        <td>@ViewBag.a2dSalesData[i,j]</td>
+                        }
+                    </tr>
+                }
+            </thead>
+        </table>
     }
     else
     {
@@ -46,21 +93,28 @@
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
     }
 }
-<script>
-    //selectボックスからmultiple削除
-    const Nomultiple = document.getElementById("single");
-    Nomultiple.removeAttribute("multiple");
-
-    //日付にデフォルトで今日の日付を指定
-    const date = new Date();
-    const yyyy = date.getFullYear();
-    let MM = date.getMonth() + 1;
-    if (String(MM).length == 1) {
-        MM = "0" + String(MM);
-    }
-    const dd = date.getDate();
-    const today = yyyy + "-" + MM + "-" + dd;
-    document.getElementById("date").setAttribute("value", today); 
 
 
-</script>
+@section scripts{
+    <script>
+        $(function () {
+            //selectボックスからmultiple削除
+            const Nomultiple = document.getElementById("single");
+            Nomultiple.removeAttribute("multiple");
+
+            //日付にデフォルトで今日の日付を指定
+            const date = new Date();
+            const yyyy = date.getFullYear();
+            let MM = date.getMonth() + 1;
+            if (String(MM).length == 1) {
+                MM = "0" + String(MM);
+            }
+            const dd = date.getDate();
+            const today = yyyy + "-" + MM + "-" + dd;
+            document.getElementById("date").setAttribute("value", today);
+
+            //今日の日付を指定
+            $("#today").text(MM + "/" + dd);
+        });
+    </script>
+}

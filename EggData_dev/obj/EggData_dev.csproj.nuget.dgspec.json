@@ -20,6 +20,7 @@
           "netcoreapp3.1"
         ],
         "sources": {
+          "/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/wwwroot/lib/Omu": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

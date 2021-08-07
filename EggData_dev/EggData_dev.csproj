@@ -9,10 +9,10 @@
     <None Remove="Microsoft.AspNetCore.Authentication.Google" />
     <None Remove="MySql.EntityFrameworkCore" />
     <None Remove="Models\" />
-    <None Remove="Data\Migrations\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Views\Store\" />
+    <None Remove="Data\Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Data\Migrations\" />
     <Folder Include="Views\Store\" />
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 </Project>

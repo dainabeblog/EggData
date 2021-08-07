@@ -19,8 +19,11 @@ namespace EggData_dev.Data
             base.OnModelCreating(builder);
         }
 
-        public DbSet<EggData_dev.Models.Product> Product { get; set; }
+        public DbSet<Product> Product { get; set; }
 
-        public DbSet<EggData_dev.Models.Store> Store { get; set; }
+        public DbSet<Store> Store { get; set; }
+
+        public DbSet<SalesData> SalesData { get; set; }
+
     }
 }

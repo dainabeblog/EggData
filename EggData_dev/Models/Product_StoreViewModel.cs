@@ -7,5 +7,6 @@ namespace EggData_dev.Models
     {
         public List<Product> Product { get; set; }
         public List<Store> Store { get; set; }
+        public List<SalesData> SalesData { get; set; }
     }
 }

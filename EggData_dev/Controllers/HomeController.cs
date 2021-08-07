@@ -9,7 +9,7 @@ using EggData_dev.Models;
 using EggData_dev.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using System.Data;
 namespace EggData_dev.Controllers
 {
     public class HomeController : Controller
@@ -23,28 +23,220 @@ namespace EggData_dev.Controllers
             _context = context;
         }
 
-        
-
         public async Task<IActionResult> Index()
         {
             var product_store = new Product_StoreViewModel();
 
-            product_store.Product = await _context.Product
-                .Where(e => e.UserName == User.Identity.Name)
-                .ToListAsync();
+            //store 一覧
             product_store.Store = await _context.Store
                .Where(e => e.UserName == User.Identity.Name)
+               .OrderBy(Store => Store.StoreId)
                .ToListAsync();
-
             List<SelectListItem> SLIstore = new List<SelectListItem>();
             foreach(var item in product_store.Store)
             {
                 SLIstore.Add(new SelectListItem { Text = item.Name, Value = item.StoreId.ToString() });
             }
-
             ViewBag.SLIstore_VB = SLIstore;
 
-            return View(product_store);
+            Debug.WriteLine("店舗の数:" + SLIstore.Count);
+
+            //商品一覧
+            product_store.Product = await _context.Product
+                .Where(e => e.UserName == User.Identity.Name)
+                .OrderBy(Product => Product.ProductId)
+                .ToListAsync();
+            List<Product> products = new List<Product>();
+            List<SelectListItem> SLIproduct = new List<SelectListItem>();
+            foreach (var item in product_store.Product)
+            {
+                products.Add(item);
+                SLIproduct.Add(new SelectListItem { Text = item.Name, Value = item.ProductId.ToString() });
+            }
+            ViewBag.products_VB = products;
+            ViewBag.SLIproduct_VB = SLIproduct;
+            Debug.WriteLine("商品の数:" + products.Count);
+
+            // SalesDate一覧
+            DateTime dt_now = DateTime.Now;
+            product_store.SalesData = await _context.SalesData
+                //.Where(e => e.date.ToString("yyyy-MM-dd") == dt.ToString("yyyy-MM-dd"))→これはQiitaの記事にする
+               .Where(e => e.UserName == User.Identity.Name
+                        && e.date.Year == dt_now.Year
+                        && e.date.Month == dt_now.Month
+                        && e.date.Day == dt_now.Day)
+               .OrderBy(SalesData => SalesData.StoreId)
+               .ThenBy(SalesData => SalesData.ProductId)
+               .ToListAsync();
+            List<SalesData> SalesDatas = new List<SalesData>();
+            foreach (var item in product_store.SalesData)
+            {
+                SalesDatas.Add(item);
+            }
+            ViewBag.SalesDatas_VB = SalesDatas;
+
+
+            string[,] a2Ds_salesDate = new string[SLIstore.Count, SLIproduct.Count + 1];
+            for(var i = 0; i < SLIstore.Count; i++)
+            {
+                for(var j = 0; j <= SLIproduct.Count; j++)
+                {
+                    if(i == 0 && j == 0)
+                    {
+                        Debug.WriteLine("------表の出力start--------");
+                    }
+
+
+                    if (j == 0)
+                    {
+                            a2Ds_salesDate[i, j] = SLIstore[i].Text;
+                    }
+                    else
+                    {
+                        if( product_store.SalesData.Any(m => m.Store.Name == SLIstore[i].Text && m.Product.Name == SLIproduct[j - 1].Text) )
+                        {
+                            a2Ds_salesDate[i, j] = product_store.SalesData.Find( m => m.Store.Name == SLIstore[i].Text && m.Product.Name == SLIproduct[j - 1].Text ).saledCount.ToString();
+                        }
+                        else
+                        {
+                            a2Ds_salesDate[i, j] = "0";
+                        }
+                    }
+
+
+                    if( j == SLIproduct.Count)
+                    {
+                        Debug.WriteLine(a2Ds_salesDate[i, j]);
+                    }
+                    else
+                    {
+                        Debug.Write(a2Ds_salesDate[i, j] + ",");
+                    }
+                }
+                if (i == SLIstore.Count - 1)
+                {
+                    Debug.WriteLine("------表の出力end--------");
+                }
+            }
+            ViewBag.a2dSalesData = a2Ds_salesDate;
+
+
+
+            List<SalesData> salesData = new List<SalesData>();
+            foreach (var item in product_store.SalesData)
+            {
+                salesData.Add(item);
+            }
+            ViewBag.salesData_VB = salesData;
+
+
+
+            return View();
+        }
+
+        // POST: Home/Index
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index([Bind("date,StoreId,ProductId,saledCount,UserName")] SalesData salesData)
+        {
+            var product_store = new Product_StoreViewModel();
+
+            //store 一覧
+            product_store.Store = await _context.Store
+               .Where(e => e.UserName == User.Identity.Name)
+               .ToListAsync();
+            List<SelectListItem> SLIstore = new List<SelectListItem>();
+            foreach (var item in product_store.Store)
+            {
+                SLIstore.Add(new SelectListItem { Text = item.Name, Value = item.StoreId.ToString() });
+            }
+            ViewBag.SLIstore_VB = SLIstore;
+
+            Debug.WriteLine("店舗の数:" + SLIstore.Count);
+
+            //商品一覧
+            product_store.Product = await _context.Product
+                .Where(e => e.UserName == User.Identity.Name)
+                .ToListAsync();
+            List<Product> products = new List<Product>();
+            List<SelectListItem> SLIproduct = new List<SelectListItem>();
+            foreach (var item in product_store.Product)
+            {
+                products.Add(item);
+                SLIproduct.Add(new SelectListItem { Text = item.Name, Value = item.ProductId.ToString() });
+            }
+            ViewBag.products_VB = products;
+            ViewBag.SLIproduct_VB = SLIproduct;
+            Debug.WriteLine("商品の数:" + products.Count);
+
+
+            //salesData一覧
+            DateTime dt_now = DateTime.Now;
+            product_store.SalesData = await _context.SalesData
+               //.Where(e => e.date.ToString("yyyy-MM-dd") == dt.ToString("yyyy-MM-dd"))→これはQiitaの記事にする
+               .Where(e => e.UserName == User.Identity.Name
+                        && e.date.Year == dt_now.Year
+                        && e.date.Month == dt_now.Month
+                        && e.date.Day == dt_now.Day)
+               .OrderBy(SalesData => SalesData.StoreId)
+               .ThenBy(SalesData => SalesData.ProductId)
+               .ToListAsync();
+            string[,] a2Ds_salesDate = new string[SLIstore.Count, SLIproduct.Count + 1];
+            for (var i = 0; i < SLIstore.Count; i++)
+            {
+                for (var j = 0; j <= SLIproduct.Count; j++)
+                {
+                    if (i == 0 && j == 0)
+                    {
+                        Debug.WriteLine("------表の出力start--------");
+                    }
+
+
+                    if (j == 0)
+                    {
+                        a2Ds_salesDate[i, j] = SLIstore[i].Text;
+                    }
+                    else
+                    {
+                        if (product_store.SalesData.Any(m => m.Store.Name == SLIstore[i].Text && m.Product.Name == SLIproduct[j - 1].Text))
+                            //if (false)
+                        {
+                            a2Ds_salesDate[i, j] = product_store.SalesData.Find(m => m.Store.Name == SLIstore[i].Text && m.Product.Name == SLIproduct[j - 1].Text).saledCount.ToString();
+                        }
+                        else
+                        {
+                            a2Ds_salesDate[i, j] = "0";
+                        }
+                    }
+
+
+                    if (j == SLIproduct.Count)
+                    {
+                        Debug.WriteLine(a2Ds_salesDate[i, j]);
+                    }
+                    else
+                    {
+                        Debug.Write(a2Ds_salesDate[i, j] + ",");
+                    }
+                }
+                if (i == SLIstore.Count - 1)
+                {
+                    Debug.WriteLine("------表の出力end--------");
+                }
+            }
+            ViewBag.a2dSalesData = a2Ds_salesDate;
+
+
+            // SalesDate一覧
+            if (ModelState.IsValid)
+            {
+                _context.Add(salesData);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index", "Home");
+            }
+            //return RedirectToAction("Index", "Home");
+            //Redirectにしたら検証できない→いずれ解決したい。
+            return View(salesData);
         }
 
 
