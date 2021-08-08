@@ -1,0 +1,156 @@
+﻿@model EggData_dev.Models.SalesData
+
+@{
+
+    ViewData["Title"] = "Home Page";
+
+}
+
+@{ if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="data">
+            <div class="form-group">
+                <p>期間</p>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1">
+                    <option>今日</option>
+                    <option>今週</option>
+                    <option>今月</option>
+                    <option>半年</option>
+                    <option>1年間</option>
+                    <option>全期間</option>
+                </select>
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>店舗名</p>
+                <select id="single" asp-for="StoreId" class="form-control" asp-items="ViewBag.SLIstore_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <p>商品名</p>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.SLIproduct_VB" size="1"></select>
+            </div>
+            <div class="form-group">
+                <input asp-for="UserName" value="@User.Identity.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="作成" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <div>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <canvas id="myChart2"></canvas>
+        </div>
+        <script>const labels = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+            ];
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+            };
+            const config = {
+                type: 'line',
+                data,
+                options: {}
+            };
+            var myChart = new Chart(
+                document.getElementById('myChart2'),
+                config
+            );</script>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>店舗名</th>
+                    @foreach (var item in ViewBag.products_VB)
+                    {
+                        <th>
+                            @item.Name
+                        </th>
+                    }
+                </tr>
+                @for (var i = 0; i < ViewBag.a2dSalesData.GetLength(0); i++)
+                {
+                    <tr>
+                        @for (var j = 0; j < ViewBag.a2dSalesData.GetLength(1); j++)
+                        {
+                            if (j == 0)
+                            {
+                                <td>@ViewBag.a2dSalesData[i, j].Text</td>
+                            }
+                            else
+                            {
+
+                                if (ViewBag.a2dSalesData[i, j] is string)
+                                {
+                                    <td>@ViewBag.a2dSalesData[i, j]</td>
+                                }
+                                else
+                                {
+                                    <td>@ViewBag.a2dSalesData[i, j].saledCount <a asp-action="Edit" asp-controller="SalesData" asp-route-id="@ViewBag.a2dSalesData[i, j].SalesDataId">修正</a></td>
+                                }
+                            }
+                        }
+                    </tr>
+                }
+            </thead>
+        </table>
+    }
+    else
+    {
+        <h1>ログインしてください</h1>
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    }
+}
+
+
+@section scripts{
+    <script>//2つ目のグラフ
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });</script>
+}

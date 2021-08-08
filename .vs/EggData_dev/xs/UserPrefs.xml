@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{AE9489BD-6238-4AAF-9420-DA334D9E13CF}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EggData_dev/Views/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="EggData_dev/Controllers/SalesDataController.cs" Line="106" Column="23" />
-      <File FileName="EggData_dev/Views/SalesData/Edit.cshtml" Line="30" Column="19" />
-      <File FileName="EggData_dev/Views/Home/Index.cshtml" Line="77" Column="1" />
-      <File FileName="EggData_dev/Views/Home/data.cshtml" Line="73" Column="1" />
-      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="183" Column="27" />
-      <File FileName="EggData_dev/Program.cs" Line="16" Column="1" />
+      <File FileName="EggData_dev/Views/Data/Index.cshtml" Line="6" Column="1" />
+      <File FileName="EggData_dev/Controllers/HomeController.cs" Line="15" Column="18" />
+      <File FileName="EggData_dev/Controllers/DataController.cs" Line="123" Column="10" />
+      <File FileName="EggData_dev/Views/Home/Index.cshtml" Line="75" Column="2" />
+      <File FileName="EggData_dev/Views/Shared/_Layout.cshtml" Line="11" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,11 +16,14 @@
               <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Data" expanded="True" />
                 <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
               </Node>
               <Node name="wwwroot" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
-              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -32,6 +34,9 @@
           <Value>(storeName =&gt; storeName.Store.Name == SLIstore[i].Text) </Value>
           <Value>ViewBag.a2dSalesData[i, j]</Value>
           <Value>ViewBag.a2dSalesData.GetLength(1)</Value>
+          <Value>ViewBag.a2dSalesData.GetLength(1)</Value>
+          <Value>ViewBag.a2dSalesData[i, j].Text</Value>
+          <Value>ViewBag.a2dSalesData[i, j]</Value>
         </State>
       </Pad>
     </Pads>
@@ -42,8 +47,6 @@
     <BreakpointStore>
       <Breakpoint file="/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/Controllers/StoreController.cs" relfile="EggData_dev/Controllers/StoreController.cs" line="73" column="1" />
       <Breakpoint file="/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/Controllers/StoreController.cs" relfile="EggData_dev/Controllers/StoreController.cs" line="75" column="1" />
-      <Breakpoint file="/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/Views/Home/Index.cshtml" relfile="EggData_dev/Views/Home/Index.cshtml" line="77" column="1" />
-      <Breakpoint file="/Users/watanabedaichi/Desktop/github.com/dainabeblog/EggData_dev/EggData_dev/Views/Home/Index.cshtml" relfile="EggData_dev/Views/Home/Index.cshtml" line="73" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

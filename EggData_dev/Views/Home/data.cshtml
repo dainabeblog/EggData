@@ -8,6 +8,7 @@
 
 @{ if (User.Identity.IsAuthenticated)
     {
+        <h1>データ一覧</h1>
         <form asp-action="data">
             <div class="form-group">
                 <p>期間</p>
@@ -37,11 +38,10 @@
             </div>
         </form>
 
-        <p id="today"></p>
-        <p>のデータ</p>
         <table class="table">
             <thead>
                 <tr>
+                    <th>日付</th>
                     <th>店舗名</th>
                     @foreach (var item in ViewBag.products_VB)
                     {
